@@ -3,28 +3,28 @@ import { Carousel } from 'react-bootstrap';
 
 const Hero = () => (
   <div>
-  <Carousel style={{margin:"20px"}}>
-  <Carousel.Item style={{height:'200px'}}>
+  <Carousel style={{margin:"0px"}}>
+  <Carousel.Item style={{height:'320px'}}>
     <img
-      className="d-block w-100"
-      src="https://d2kektcjb0ajja.cloudfront.net/images/posts/feature_images/000/000/072/large-1466557422-feature.jpg?1466557422"
+      className="d-block " style={{height:"300px", width:"350px", marginLeft:"450px", marginTop:"20px"}}
+      src="https://m.media-amazon.com/images/M/MV5BYzQxMjVkZjEtMDQxYy00MGIwLWE1NjYtYzZkZmU1NTFlZGFlXkEyXkFqcGdeQXVyNjY1MTg4Mzc@._V1_SX300.jpg"
       alt="First slide"
     />
  
   </Carousel.Item>
-  <Carousel.Item style={{height:'200px'}}>
+  <Carousel.Item style={{height:'320px'}}>
     <img
-      className="d-block w-100"
-      src="https://www.cinemasterpieces.com/videos2019/starwarstop2019m.jpg"
+      className="d-block" style={{height:"300px", width:"350px", marginLeft:"450px", marginTop:"20px"}}
+      src="https://m.media-amazon.com/images/M/MV5BZWNiOTc4NGItNGY4YS00ZGNkLThkOWEtMDE2ODcxODEwNjkwXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_SX300.jpg"
       alt="Second slide"
     />
 
     
   </Carousel.Item>
-  <Carousel.Item style={{height:'200px'}}>
+  <Carousel.Item style={{height:'320px'}}>
     <img
-      className="d-block w-100"
-      src="https://cdn.shopify.com/s/files/1/0747/3829/products/mHP0170_1024x1024.jpeg?v=1571444283​​​​​​​"
+      className="d-block " style={{height:"300px", width:"350px", marginLeft:"450px", marginTop:"20px"}}
+      src="https://m.media-amazon.com/images/M/MV5BNTkwOTE1ZDYtODQ3Yy00YTYwLTg0YWQtYmVkNmFjNGZlYmRiXkEyXkFqcGdeQXVyNTc4MjczMTM@._V1_SX300.jpg​​​​​​​"
       alt="Third slide"
     />
 

@@ -1,6 +1,6 @@
 import React from 'react'
-import Hero from './Hero';
-import Listing from './Listing';
+import Hero from '../components/Hero';
+import Listing from '../components/Listing';
 import logo from './Content.jpg';
 
 function Home() {

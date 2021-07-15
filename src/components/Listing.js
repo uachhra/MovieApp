@@ -4,7 +4,7 @@ import MediaCard from './MediaCard';
 function Listing(props) {
     const [list, setList] = useState([]);
     useEffect(() => {
-        const url= `http://localhost:3000/${props.url}?_page=1&_limit=4`;
+        const url= `api/${props.url}?_page=1&_limit=4`;
         const fetchData= async () =>{
             try{
                 const response= await fetch(url);

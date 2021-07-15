@@ -1,12 +1,13 @@
 import React,{useState,useEffect} from 'react'
-import {    useParams
-  } from "react-router-dom";
+import {    useParams  } from "react-router-dom";
 
 function Details(props) {
     let { id } = useParams();
     const [mediaDetails, setMediaDetail] = useState({});
     useEffect(() => {
-        const url= `http://localhost:3000/${props.url}/${id}`;
+        var getUrl = window.location;
+        var baseUrl = getUrl .protocol + "//" + getUrl.host;
+        const url= `${baseUrl}/api/${props.url}/${id}`;
         const fetchData= async () =>{
             try{
                 const response= await fetch(url);
@@ -14,7 +15,7 @@ function Details(props) {
                 setMediaDetail(json);
             }
             catch(err){
-                console.log("Error");
+                console.log(err);
             }
         }
         fetchData();

@@ -11,6 +11,7 @@
     "auto-bind": "^4.0.0",
     "bootstrap": "^5.0.2",
     "jest-config": "^26.6.3",
+    "json-server": "^0.16.3",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
     "react-carousel": "^4.3.0",
