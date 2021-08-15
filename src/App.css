@@ -207,3 +207,49 @@
 }
  
 
+.SearchPage {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 13;
+  background-color: white;
+}
+
+.CloseButton {  
+  font-size: 50px;
+  margin: 10px;
+}
+
+.SearchBar{
+  background: linear-gradient(90deg,rgb(243, 12, 28),#ff6969 100%);
+  min-height: 120px;
+  width: 100%;
+}
+
+.Inside{
+  width: 100%;
+  max-width: 1364px;
+  min-width: 768px;
+  margin: auto;
+}
+
+.Searchbox {
+  position: absolute;
+  font-size: 30px;
+  top: 50px;
+  left: 0;
+  right: 0;
+  padding-left: 20px;
+  padding-right: 160px;
+  color: #7ebce2;
+}
+
+.SearchResult{
+  background: black;
+  color: white;
+  height: 100%;
+  max-width: 100%;
+}
+

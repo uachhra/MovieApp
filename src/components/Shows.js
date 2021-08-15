@@ -3,7 +3,7 @@ import Griding from './Griding'
 function Shows() {
     return (
         <div>
-          <Griding title = "Shows" url='shows' route="shows" />      
+          <Griding title = "TVShows" url='tvshows' route="tvshows" />      
         </div>
     )
 }

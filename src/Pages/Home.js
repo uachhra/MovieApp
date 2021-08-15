@@ -9,7 +9,7 @@ function Home() {
             <Hero />
             <Listing title="Featured Movies" url="movies" />          
             <br />
-            <Listing title="Featured Series" url="shows" />
+            <Listing title="Featured Series" url="tvshows" />
             <br />
             <img alt='logo' style={{ width: '90%', margin:'50px' }} src={logo} />
             <br />

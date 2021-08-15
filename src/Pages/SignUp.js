@@ -1,140 +1,129 @@
-import React from 'react';
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import TextField from '@material-ui/core/TextField';
+import React, { Component } from 'react'
+import { Grid, Paper, Avatar, Typography, TextField, Button } from '@material-ui/core'
+import AddCircleOutlineOutlinedIcon from '@material-ui/icons/AddCircleOutlineOutlined';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import FormControl from '@material-ui/core/FormControl';
+import FormLabel from '@material-ui/core/FormLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
+import { Label } from '@material-ui/icons';
+//import Image from '../assets/img/signup.jpg';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        BookMyTickets
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
+
+
+class SignUp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+            firstname: '',
+            lastname: ''
+
+
+        }
+    }
+
+   
+
+    handleemailChange = (e) => {
+
+        this.state.email = e.target.value;
+
+
+    }
+    handlepasswordChange = (e) => {
+
+        this.password = e.target.value;
+
+
+    }
+    handlefnameChange = (e) => {
+
+        this.state.firstname = e.target.value;
+
+    }
+    handlelnameChange = (e) => {
+
+        this.state.lastname = e.target.value;
+
+    }
+
+    onSubmit = (e) => {
+       
+      
+        fetch("http://localhost:5000/users",
+            {
+              
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+
+                },
+                body: JSON.stringify({
+                    username: this.state.email,
+                    password: this.state.password,
+                    firstName: this.state.firstname,
+                    lastName: this.state.lastname
+
+                })
+
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data);
+                window.location.href ='/';
+                
+                
+            })
+            .catch(err => console.log(`Error ${err}`))
+       
+    }
+
+    render() {
+        const paperStyle = { padding: '30px 20px', height: 600, width: 480, margin: "10px auto" }
+        const headerStyle = { margin: 0 }
+        const gridStyle = { backgroundImage: `url(${Image})`, backgroundRepeat: "no-repeat", height: 900 }
+        const avatarStyle = { backgroundColor: '#1bbd7e' }
+        const marginTop = { marginTop: 5 }
+    
+        return (
+            <Grid className="grid-main" style={gridStyle}>
+                <hr></hr>
+
+                <Paper elevation={20} style={paperStyle} className='papereffects'>
+                    <Grid align='center'>
+                        <Avatar style={avatarStyle}>
+                            <AddCircleOutlineOutlinedIcon />
+                        </Avatar>
+                        <h2 style={headerStyle}>Sign Up</h2>
+                        <Typography variant='caption' gutterBottom>Please fill this form to create an account !</Typography>
+                    </Grid>
+                    <form>
+                        <TextField fullWidth name='email' label='Email*' onChange={(event) => this.handleemailChange(event)} placeholder="Enter your email" />
+
+                        <TextField fullWidth name='password' label='Password*' onChange={(event) => this.handlepasswordChange(event)} placeholder="Enter your password" />
+
+
+                        <TextField fullWidth name='firstname' label='First Name*' onChange={(event) => this.handlefnameChange(event)} placeholder="Enter your Firts Name" />
+
+
+                        <TextField fullWidth name='lastname' label='Last Name*' onChange={(event) => this.handlelnameChange(event)} placeholder="Enter your Last Name" />
+
+                        <FormControlLabel
+                            control={<Checkbox name="checkedA" />}
+                            label="I accept the terms and conditions."
+                        />
+                        <Button type='button' className="addSubmitButton" onClick={(event) => this.onSubmit()} variant='contained' color='primary'>Sign up</Button>
+                    </form>
+                </Paper>
+            </Grid>
+        )
+        //   return (
+        //      <div></div>
+        //  )
+    }
 }
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    marginTop: theme.spacing(8),
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
-  },
-  submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
-}));
-
-export default function SignUp() {
-  const classes = useStyles();
-
-  return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <LockOutlinedIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Sign up
-        </Typography>
-        <form className={classes.form} noValidate>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                autoComplete="fname"
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
-              />
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-                autoComplete="lname"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="email"
-                label="Email Address"
-                name="email"
-                autoComplete="email"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                name="password"
-                label="Password"
-                type="password"
-                id="password"
-                autoComplete="current-password"
-              />
-            </Grid>
-            <Grid item xs={12}>
-              <FormControlLabel
-                control={<Checkbox value="allowExtraEmails" color="primary" />}
-                label="I want to receive inspiration, marketing promotions and updates via email."
-              />
-            </Grid>
-          </Grid>
-          <Button
-            type="submit"
-            fullWidth
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-          >
-            Sign Up
-          </Button>
-          <Grid container justifyContent="flex-end">
-            <Grid item>
-              <Link href="#" variant="body2">
-                Already have an account? Sign in
-              </Link>
-            </Grid>
-          </Grid>
-        </form>
-      </div>
-      <Box mt={5}>
-        <Copyright />
-      </Box>
-    </Container>
-  );
-}
+export default SignUp;

@@ -5,7 +5,7 @@ import {Container,Row,Col} from 'react-bootstrap'
 function Griding(props) {
     const [list, setList] = useState([]);
     useEffect(() => {
-        const url= `api/${props.url}`;
+        const url= `http://localhost:5000/${props.url}`;
         const fetchData= async () =>{
             try{
                 const response= await fetch(url);

@@ -5,9 +5,7 @@ function Details(props) {
     let { id } = useParams();
     const [mediaDetails, setMediaDetail] = useState({});
     useEffect(() => {
-        var getUrl = window.location;
-        var baseUrl = getUrl .protocol + "//" + getUrl.host;
-        const url= `${baseUrl}/api/${props.url}/${id}`;
+        const url= `http://localhost:5000/${props.url}/${id}`;
         const fetchData= async () =>{
             try{
                 const response= await fetch(url);
